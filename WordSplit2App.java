@@ -10,5 +10,6 @@ public class WordSplit2App {
         }
         // for this word.charAt() better is normal "for loop"
         // first commit
+	// next change for git exercise (17)
     }
 }
