@@ -18,5 +18,7 @@ public class WordSplitApp {
         }
 
         // for this .toCharArray() better is "enhanced for loop"
+
+	// some additional text (git task)
     }
 }
