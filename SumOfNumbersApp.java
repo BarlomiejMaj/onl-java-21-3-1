@@ -1,39 +1,27 @@
 package loop;
 
-import java.util.Scanner;
-
 public class SumOfNumbersApp {
       public static void main(String[] args) {
 
+          /*
+          System.out.println("===============IF ARGUMENTS ARE INTEGERS===================");
 
-          int integerNumberA = Integer.parseInt("123");
-          integerNumberA = Integer.parseInt(args[0]);
+          int integerNumber = 0;
+          for (int i = 0; i < args.length; i++){
+            // int integerNumber = Integer.parseInt(args[i]);
+              integerNumber = integerNumber + Integer.parseInt(args[i]);
+          }
+          System.out.println(integerNumber);
+*/
 
-          int integerNumberB = Integer.parseInt("456");
-          integerNumberB = Integer.parseInt(args[1]);
+          System.out.println("==============IF ARGUMENTS ARE DOUBLES====================");
 
-          int integerNumberC = Integer.parseInt("789");
-          integerNumberC = Integer.parseInt(args[2]);
+          double doubleNumber = 0;
+          for (double j = 0; j < args.length; j++){
+              doubleNumber = doubleNumber + Double.parseDouble(args[(int) j]);
 
-          int sumOfAllIntegers = integerNumberA + integerNumberB + integerNumberC;
+          }
+          System.out.println(doubleNumber);
 
-          System.out.println(sumOfAllIntegers);
-
-
-          System.out.println("==================================");
-
-
-          double doubleNumberA = Double.parseDouble("1.23");
-          doubleNumberA = Double.parseDouble(args[3]);
-
-          double doubleNumberB = Double.parseDouble("4.56");
-          doubleNumberB = Double.parseDouble(args[4]);
-
-          double doubleNumberC = Double.parseDouble("7.89");
-          doubleNumberC = Double.parseDouble(args[5]);
-
-          double sumOfAllDoubles = doubleNumberA + doubleNumberB + doubleNumberC;
-
-          System.out.println(sumOfAllDoubles);
     }
 }
