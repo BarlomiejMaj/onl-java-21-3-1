@@ -3,6 +3,8 @@ package collections;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Comparator;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class PartsCatalogue {
     public static void main(String[] args) {
@@ -25,7 +27,20 @@ public class PartsCatalogue {
         for(int i = 0; i < partList.size(); i++){
             partList.sort(Comparator.naturalOrder());
             System.out.println(partList.get(i) + " ");
+
         }
-      //  System.out.println(partList);
+
+        System.out.println("-------------------");
+
+        //System.out.println(partList.stream().filter(a -> a.getPartNumber() == 112));
+
+        partList.stream().map(Part -> Part.getPartNumber()).forEach(System.out::println);
+
+        System.out.println("-------------------");
+
+        partList.stream().filter(Part -> Part.getPartNumber() == 112).forEach(Part -> System.out.println(Part.toString()));
+
+
     }
+
 }
