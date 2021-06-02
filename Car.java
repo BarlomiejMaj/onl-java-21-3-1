@@ -1,62 +1,50 @@
-package interfaces;
+package immutabilityTask;
 
-import object.Notebook;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
-import java.util.Objects;
+import java.util.List;
 
+@ToString
+@EqualsAndHashCode
 public class Car {
-    public String manufacturer;
-    private String model;
+    private final String manufacturer;
+    private final String model;
+    private final Engine engine;
+   // private final List<Wheel> wheels;
 
-
-    public Car(String manufacturer, String model) {
+    public Car(String manufacturer, String model, Engine engine) {
         this.manufacturer = manufacturer;
         this.model = model;
+        this.engine = engineCopy(engine);
+        //this.wheels = (List<Wheel>) wheelsCopy((Wheel) wheels);
     }
 
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
+    public static Car createCar(String manufacturer, String model, Engine engine) {
+        return new Car(manufacturer, model, engine);
     }
 
     public String getManufacturer() {
         return manufacturer;
     }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
-
     public String getModel() {
         return model;
     }
 
-    @Override
-    public String toString() {
-        return "Car{" +
-                "manufacturer='" + manufacturer + '\'' +
-                ", model=" + model +
-                '}';
+    public Engine getEngine() {
+        return engineCopy(engine);
     }
 
-    @Override
-    public boolean equals(Object obj){
-        if(!(obj instanceof Car)){
-            return false;
-        }
-        Car another = (Car) obj;
-        if(!manufacturer.equals(another.manufacturer)){
-            return false;
-        }
-        if(!model.equals(another.model)){
-            return false;
-        }
-        return model == another.model;
+    private Engine engineCopy(Engine engineToCopy){
+        return new Engine(engineToCopy.getType(), engineToCopy.getHorsePower(), engineToCopy.getVolume());
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(manufacturer, model);
-    }
-
-
+//    public Wheel getWheels() {
+//        return wheelsCopy((Wheel) wheels);
+//    }
+//
+//    private Wheel wheelsCopy(Wheel wheelsToCopy){
+//        return new Wheel(wheelsToCopy.getRadius(), wheelsToCopy.getWidth());
+//    }
 }
